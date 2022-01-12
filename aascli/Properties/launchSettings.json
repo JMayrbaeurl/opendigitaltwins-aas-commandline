@@ -1,8 +1,16 @@
 {
   "profiles": {
-    "aascli": {
+    "aascli file list-all": {
       "commandName": "Project",
-      "commandLineArgs": "file -u https://hack2021aasapi.azurewebsites.net",
+      "commandLineArgs": "file list-all -u https://hack2021aasapi.azurewebsites.net",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    },
+    "aascli file list-all -i smart.festo.com/demo/aas/1/1/454576463545648365874": 
+    {
+      "commandName": "Project",
+      "commandLineArgs": "file list-all -i smart.festo.com/demo/aas/1/1/454576463545648365874 -u https://hack2021aasapi.azurewebsites.net",
       "environmentVariables": {
         "DOTNET_ENVIRONMENT": "Development"
       }

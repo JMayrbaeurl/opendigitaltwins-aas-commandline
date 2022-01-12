@@ -7,11 +7,15 @@ using System.IO;
 
 namespace AAS.CLI
 {
-    [Verb("file", HelpText = "Manage AASX package files in library")]
+    [Verb("file", HelpText = "Manage AASX package files in library. Subverbs: list-all")]
     class FileOptions
     { 
+        [Value(0, HelpText ="string", Required = true)]
+        public string Subcommand { get; set; }
         [Option('u', "url", Required = true, HelpText = "AAS API Url")]
         public string Url { get; set; }
+        [Option('i', "aasId", Required = false, HelpText = "List of AAS Ids which all must be in each matching AASX package")]
+        public string AASId { get; set; }
     }
     [Verb("shell", HelpText = "Manage AAS shells")]
     class ShellOptions

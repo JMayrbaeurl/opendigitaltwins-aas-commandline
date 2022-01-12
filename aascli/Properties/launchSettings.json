@@ -1,0 +1,18 @@
+{
+  "profiles": {
+    "aascli": {
+      "commandName": "Project",
+      "commandLineArgs": "file -u https://hack2021aasapi.azurewebsites.net",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    },
+    "aascli local": {
+      "commandName": "Project",
+      "commandLineArgs": "file -u http://localhost:50352",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

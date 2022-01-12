@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "aascli", "aascli\aascli.csproj", "{64BB6E62-6B8E-4826-9969-14F57F6ACE89}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "aascli-tests", "aascli-tests\aascli-tests.csproj", "{792573B8-02EE-493A-9EE5-1917AA075854}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{64BB6E62-6B8E-4826-9969-14F57F6ACE89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64BB6E62-6B8E-4826-9969-14F57F6ACE89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64BB6E62-6B8E-4826-9969-14F57F6ACE89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64BB6E62-6B8E-4826-9969-14F57F6ACE89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{792573B8-02EE-493A-9EE5-1917AA075854}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{792573B8-02EE-493A-9EE5-1917AA075854}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{792573B8-02EE-493A-9EE5-1917AA075854}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{792573B8-02EE-493A-9EE5-1917AA075854}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {330C784C-FEFE-4390-8292-6365D21B2148}
+	EndGlobalSection
+EndGlobal

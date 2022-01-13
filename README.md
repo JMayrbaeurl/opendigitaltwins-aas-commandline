@@ -4,8 +4,36 @@ Work in progress. Sample command line daemon application that can call [AAS API 
 
 ## Configuration
 
+Application settings are stored in the local file 'appsettings.json' that's located in the application's folder.
+
+```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Warning",
+      "Microsoft": "Warning",
+      "AAS.CLI": "Information"
+    },
+    "Debug": {
+      "LogLevel": {
+        "Default": "Information",
+        "AAS.CLI": "Trace"
+      }
+    }
+  },
+  "ClientId": "Enter here",
+  "ClientSecret": "Enter here",
+  "Authority": "Enter here",
+  "Scope":  "Enter here"
+}
+```
+
 ### Security configuration
-TBD. Azure AD App registration setup
+AAS REST API Servers are expecting a JWT Bearer token in the Authorization header of HTTP requests. Azure AD is used to 
+generate these tokens. Therefore an App registration for the AAS command line app with the appropriate access permissions 
+has to be created. See Powershell script 'createADSetup.ps1' in folder './scripts/azuredeployment'. The script outputs the 
+Client Id, the Client secret and the Scope for the application settings file. Authority looks like
+ `https://login.microsoftonline.com/[your directory tenant id]`
 
 ## AASX File Server support
 

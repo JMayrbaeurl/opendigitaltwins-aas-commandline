@@ -1,6 +1,14 @@
 # Open Digital Twins - Asset Administration Shell - Command line
 
-Work in progress. Sample command line daemon application that can call [AAS API Rest servers](https://github.com/JMayrbaeurl/opendigitaltwins-aas-azureservices)
+Work in progress. Sample command line daemon application that can call 
+[AAS API Rest servers](https://github.com/JMayrbaeurl/opendigitaltwins-aas-azureservices). Currently supported:
+
+| AAS API Interface | Supported by version |
+| --- | --- |
+| AASX File Server | v0.0.1 |
+| Discovery Server | n.a. |
+| Shell Repository | n.a. |
+| Registry Server | n.a. |
 
 ## Configuration
 
@@ -42,23 +50,37 @@ Client Id, the Client secret and the Scope for the application settings file. Au
 aascli file subcommand [options]
 ```
 
-### Operation GetAllAASXPackageIds**
+| Command line syntax | AAS Interface operation |
+| --- | --- |
+| `aascli file list-all` | GetAllAASXPackageIds |
+| `aascli file create` | PostAASXPackage |
+| `aascli file delete` | DeleteAASXPackageById |
+| `aascli file update` | PutAASXPackage |
+| `aascli file download` | GetAASXByPackageId |
+
+**Global Parameters**
+
+`--url -u`
+
+Url of the AASX File Server instance. E.g. `https://[your]aasapi.azurewebsites.net`
+
+### aascli file list-all - Operation GetAllAASXPackageIds
 
 Returns a list of available AASX packages at the server
 
 ```
-aascli file list-all --aasId
+aascli file list-all [--aasId] --url
 ```
 **Examples**
 
 Return all available AASX packages
 ```
-aascli file list-all
+aascli file list-all --u https://[your]aasapi.azurewebsites.net
 ```
 
 Return all AASX packages that match the specified AAS identifier aasId
 ```
-aascli file list-all --aasId '{aasId}'
+aascli file list-all --aasId '{aasId}' -u https://[your]aasapi.azurewebsites.net
 ```
 **Required Parameters**
 
@@ -69,3 +91,71 @@ None
 `--aasId -i`
 
 AAS Ids which all must be in each matching AASX package
+
+### aascli file create - Operation PostAASXPackage
+
+TBD
+
+```
+aascli file create --aasId --file --url
+```
+**Examples**
+
+**Required Parameters**
+
+None
+
+**Optional Parameters**
+
+None
+
+### aascli file delete - Operation DeleteAASXPackageById
+
+TBD
+
+```
+aascli file delete
+```
+**Examples**
+
+**Required Parameters**
+
+None
+
+**Optional Parameters**
+
+None
+
+### aascli file update - Operation PutAASXPackage
+
+TBD
+
+```
+aascli file update
+```
+**Examples**
+
+**Required Parameters**
+
+None
+
+**Optional Parameters**
+
+None
+
+### aascli file download - Operation GetAASXByPackageId
+
+TBD
+
+```
+aascli file download
+```
+**Examples**
+
+**Required Parameters**
+
+None
+
+**Optional Parameters**
+
+None

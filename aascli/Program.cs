@@ -7,15 +7,23 @@ using System.IO;
 
 namespace AAS.CLI
 {
-    [Verb("file", HelpText = "Manage AASX package files in library. Subverbs: list-all")]
+    [Verb("file", HelpText = "Manage AASX package files in library. Subverbs: list-all, create, update, delete, download")]
     class FileOptions
     { 
         [Value(0, HelpText ="string", Required = true)]
         public string Subcommand { get; set; }
         [Option('u', "url", Required = true, HelpText = "AAS API Url")]
         public string Url { get; set; }
-        [Option('i', "aasId", Required = false, HelpText = "List of AAS Ids which all must be in each matching AASX package")]
+        [Option('i', "aasId", Required = false, HelpText = "List of AAS Ids seperated by ','")]
         public string AASId { get; set; }
+        [Option('f', "file", Required = false, HelpText ="AASX package file path")]
+        public string PackageFilePath { get; set; }
+        [Option('p', "packageId", Required =false, HelpText = "AASX package Id")]
+        public string PackageId { get; set; }
+        [Option('d', "directory", Required =false, HelpText ="")]
+        public string Directory { get; set; }
+        [Option('n', "filename", Required = false, HelpText ="")]
+        public string Filename { get; set; }
     }
     [Verb("shell", HelpText = "Manage AAS shells")]
     class ShellOptions

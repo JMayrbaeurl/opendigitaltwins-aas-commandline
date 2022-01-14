@@ -7,10 +7,30 @@
         "DOTNET_ENVIRONMENT": "Development"
       }
     },
-    "aascli file list-all -i smart.festo.com/demo/aas/1/1/454576463545648365874": 
-    {
+    "aascli file list-all -i smart.festo.com/demo/aas/1/1/454576463545648365874": {
       "commandName": "Project",
       "commandLineArgs": "file list-all -i smart.festo.com/demo/aas/1/1/454576463545648365874 -u https://hack2021aasapi.azurewebsites.net",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    },
+    "aascli file create [02_Bosch.aasx]": {
+      "commandName": "Project",
+      "commandLineArgs": "file create -i http://boschrexroth.com/shells/0608842005/917004878 -f \"C:\\Dev\\ADT\\AAS\\AASX Samples\\02_Bosch.aasx\" -u https://hack2021aasapi.azurewebsites.net",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    },
+    "aascli file delete -p 02_Bosch": {
+      "commandName": "Project",
+      "commandLineArgs": "file delete -p 02_Bosch -u https://hack2021aasapi.azurewebsites.net",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    },
+    "aascli file download -p 02_Bosch": {
+      "commandName": "Project",
+      "commandLineArgs": "file download -p 02_Bosch -d \"C:\\Dev\\ADT\\AAS\\Test\\downloads\" -u https://hack2021aasapi.azurewebsites.net",
       "environmentVariables": {
         "DOTNET_ENVIRONMENT": "Development"
       }

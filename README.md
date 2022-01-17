@@ -1,6 +1,10 @@
 # Open Digital Twins - Asset Administration Shell - Command line
 
-Work in progress. Sample command line daemon application that can call 
+![AAS command line Technical architecture](assets/images/AASCmdlineArchitecture.png)
+
+**Attention: Work in progress** 
+
+Sample command line daemon application that can call 
 [AAS API Rest servers](https://github.com/JMayrbaeurl/opendigitaltwins-aas-azureservices). Currently supported:
 
 | AAS API Interface | Supported by version |
@@ -31,6 +35,8 @@ Application settings are stored in the local file 'appsettings.json' that's loca
   },
   "ClientId": "Enter here",
   "ClientSecret": "Enter here",
+  "ClientCertificateThumbprint": "Enter here",
+  "ValidateClientCertificate" :  false,
   "Authority": "Enter here",
   "Scope":  "Enter here"
 }
@@ -39,9 +45,14 @@ Application settings are stored in the local file 'appsettings.json' that's loca
 ### Security configuration
 AAS REST API Servers are expecting a JWT Bearer token in the Authorization header of HTTP requests. Azure AD is used to 
 generate these tokens. Therefore an App registration for the AAS command line app with the appropriate access permissions 
-has to be created. See Powershell script 'createADSetup.ps1' in folder './scripts/azuredeployment'. The script outputs the 
+has to be created. See Powershell script 'createADSetup.ps1' in the folder './scripts/azuredeployment'. The script outputs the 
 Client Id, the Client secret and the Scope for the application settings file. Authority looks like
  `https://login.microsoftonline.com/[your directory tenant id]`
+
+Using X509 certificates for authentication is supported, too. The script 'create_ClientCred_Cert.ps1' in the folder './scripts/azuredeployment'
+shows how to create a self signed certificate. You will have to add a client secret in Azure AD with the file generated in 
+'C:\Users\[username]\OneDrive - Microsoft\Documents\Certs' and set the 'ClientCertificateThumbprint' in the appsettings.json 
+file accordingly. And make sure to not specifiy 'ClientSecret' in the appsettings.json file.
 
 ## AASX File Server support
 

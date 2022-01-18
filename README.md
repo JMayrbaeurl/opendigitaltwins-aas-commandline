@@ -2,10 +2,17 @@
 
 ![AAS command line Technical architecture](assets/images/AASCmdlineArchitecture.png)
 
+The above picture shows the Technical Azure Architecture for the AASX File Server with Command line interface solution.
+
 **Attention: Work in progress** 
 
 Sample command line daemon application that can call 
-[AAS API Rest servers](https://github.com/JMayrbaeurl/opendigitaltwins-aas-azureservices). Currently supported:
+[AAS API Rest servers](https://github.com/JMayrbaeurl/opendigitaltwins-aas-azureservices). The Swagger (OpenAPI) definitions 
+for the implemented interfaces can be found on 
+[SwaggerHub](https://app.swaggerhub.com/apis/Plattform_i40/AssetAdministrationShell-REST-API/Final-Draft) 
+and were originally created by the [Plattform Industrie 4.0](https://www.plattform-i40.de/IP/Navigation/EN/Home/home.html) organization.
+
+Currently supported:
 
 | AAS API Interface | Supported by version |
 | --- | --- |
@@ -105,16 +112,29 @@ AAS Ids which all must be in each matching AASX package
 
 ### aascli file create - Operation PostAASXPackage
 
-TBD
+Creates an AASX package at the server. The package identifier will be built from the file name w/o extension.
 
 ```
 aascli file create --aasId --file --url
 ```
 **Examples**
 
+Upload the '02_Bosch.aasx' file with an Asset Administration Shell 
+identifier 'http://boschrexroth.com/shells/0608842005/917004878' as package to the server.
+
+```
+file create -i http://boschrexroth.com/shells/0608842005/917004878 -f \"C:\\AASX Samples\\02_Bosch.aasx\" -u https://hack2021aasapi.azurewebsites.net
+```
+
 **Required Parameters**
 
-None
+`--file -f`
+
+Local file path to the package file.
+
+`--aasId -i`
+
+List of Asset administration shell identifiers of shells included in the package file, separated by ','.
 
 **Optional Parameters**
 
@@ -122,16 +142,24 @@ None
 
 ### aascli file delete - Operation DeleteAASXPackageById
 
-TBD
+Deletes a specific AASX package from the server
 
 ```
 aascli file delete
 ```
 **Examples**
 
+Delete the package with the identifier '02_Bosch' from the server
+
+```
+file delete -p 02_Bosch -u https://hack2021aasapi.azurewebsites.net
+```
+
 **Required Parameters**
 
-None
+`--packageId -p`
+
+The package identifier
 
 **Optional Parameters**
 
@@ -139,33 +167,63 @@ None
 
 ### aascli file update - Operation PutAASXPackage
 
-TBD
+Updates the AASX package at the server
 
 ```
 aascli file update
 ```
 **Examples**
 
+Store an update package file for the package with the identifier '02_Bosch' on the server
+
+```
+file update -p 02_Bosch -f \"C:\\AASX Samples\\02_Boschv2.aasx\" -u https://hack2021aasapi.azurewebsites.net
+```
+
 **Required Parameters**
 
-None
+`--packageId -p`
+
+The package identifier
 
 **Optional Parameters**
 
-None
+`--file -f`
+
+Local file path to the package file.
+
+`--filename -n`
+
+New file name for the packager.
+
+`--aasId -i`
+
+List of Asset administration shell identifiers of shells included in the package file, separated by ','.
 
 ### aascli file download - Operation GetAASXByPackageId
 
-TBD
+Downloads a specific AASX package from the server
 
 ```
 aascli file download
 ```
 **Examples**
 
+Downloads the package with the identifier '02_Bosch' from the server and stores it at 'C:\downloads'
+
+```
+file download -p 02_Bosch -d \"C:\\downloads\" -u https://hack2021aasapi.azurewebsites.net
+```
+
 **Required Parameters**
 
-None
+`--packageId -p`
+
+The package identifier
+
+`--directory -d`
+
+Local directory path as destination for the downloaded package file
 
 **Optional Parameters**
 
